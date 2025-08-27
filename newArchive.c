@@ -25,13 +25,13 @@ struct song{
         int min;
         int sec;
         int popularity;
-}
+};
 
 struct add{
         char companie[];
         int sec;
         int repetitions;
-}
+};
 
 struct show{
         char name[]
@@ -39,7 +39,7 @@ struct show{
         int sec;
         int segments;
         int preferencia;
-}
+};
 
 int main() {
     printf("%i\n", true);
