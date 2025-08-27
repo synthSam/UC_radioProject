@@ -132,14 +132,11 @@ espera emitir una colección de archivos especificados en la sección 3.4.
 ### 3.1.Archivo de entrada: canciones.in
 La primera línea contendrá un entero 1 ≤ C ≤ 1000 que representa la cantidad de canciones que posee la emisora para ese día.
 Las líneas siguientes se estructurarán como: Nom, Min, Seg, y Punt.
-        ● *Nom* representa cada nombre de la canción (No mayor a 50 caracteres, nunca tendrán
-        números).
-        ● *Min* es un entero que representa la duración en minutos.
-        ● *Seg* es un entero que complementa a Min en la duración de la canción, representando
-        los segundos.
-        ● *Punt* representa la puntuación (1 ≤ Punt ≤ 100, donde 1 es pésimo y 100 excelente).
-        Todos los parámetros están separados por un espacio en blanco (el nombre de la canción puede
-        contener múltiples espacios en blanco).
+ - *Nom* representa cada nombre de la canción (No mayor a 50 caracteres, nunca tendrán números).
+ - *Min* es un entero que representa la duración en minutos.
+ - *Seg* es un entero que complementa a Min en la duración de la canción, representando los segundos.
+ - *Punt* representa la puntuación (1 ≤ Punt ≤ 100, donde 1 es pésimo y 100 excelente).
+   Todos los parámetros están separados por un espacio en blanco (el nombre de la canción puede contener múltiples espacios en blanco).
 
 Ejemplo: Se cargan 10 canciones de la siguiente manera:
         
