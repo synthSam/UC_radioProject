@@ -153,10 +153,9 @@ Ejemplo: Se cargan 10 canciones de la siguiente manera:
 ### 3.2.Archivo de entrada: publicidad.in
 Se debe leer hasta el fin del archivo los siguientes parámetros: Empresa, Segundos y Veces,
 donde:
-        ● Empresa define el nombre del patrocinante (No mayor a 30 caracteres).
-        ● Segundos define la duración en segundos de cada anuncio de esta empresa, nunca será
-        mayor a 60 segundos.
-        ● Veces define la cantidad de repeticiones que debe tener la cuña durante el día.
+- Empresa define el nombre del patrocinante (No mayor a 30 caracteres).
+- Segundos define la duración en segundos de cada anuncio de esta empresa, nunca será mayor a 60 segundos.
+- Veces define la cantidad de repeticiones que debe tener la cuña durante el día.
         
 Ejemplo: Se cargan 3 patrocinantes de la siguiente manera:
 
@@ -170,11 +169,11 @@ Es importante recordar que, aunque un show radial ocupe un horario específico, 
 una cantidad de segmentos que son las que definen su duración.
 Se deben leer en las siguientes N líneas los parámetros: Nombre Minutos Segundos Segmentos
 Preferencia.
-        - Nombre el nombre del show (No mayor a 100 caracteres).
-        - Minutos define la duración en minutos de cada segmento del show.
-        - Segundos define la duración en segundos que complementa a Minutos en la definición  de la duración del segmento, nunca será mayor a 60 segundos.
-        - Segmentos define la cantidad de oportunidades que salen al aire durante el horario.
-        - Preferencia define en una escala de valores enteros del 1 al 10 el nivel de rating que  tiene el show, donde 1 es bajo y 10 es alto.
+- Nombre el nombre del show (No mayor a 100 caracteres).
+- Minutos define la duración en minutos de cada segmento del show.
+- Segundos define la duración en segundos que complementa a Minutos en la definición  de la duración del segmento, nunca será mayor a 60 segundos.
+- Segmentos define la cantidad de oportunidades que salen al aire durante el horario.
+- Preferencia define en una escala de valores enteros del 1 al 10 el nivel de rating que  tiene el show, donde 1 es bajo y 10 es alto.
 
 Ejemplo: Se cargan 5 shows de la siguiente manera:
 
@@ -192,13 +191,13 @@ El software deberá generar una grilla de programación para cada día de la sem
 comprendida entre las 00:05:00 y las 23:59:59, utilizando los mismos archivos de entrada
 (canciones.in, publicidad.in, shows.in) para todos los días.
 Se deben generar 7 archivos de salida, uno por cada día, bajo el formato:
-        - grilla_lunes.out
-        - grilla_martes.out
-        - grilla_miercoles.out
-        - grilla_jueves.out
-        - grilla_viernes.out
-        - grilla_sabado.out
-        - grilla_domingo.out
+- grilla_lunes.out
+- grilla_martes.out
+- grilla_miercoles.out
+- grilla_jueves.out
+- grilla_viernes.out
+- grilla_sabado.out
+- grilla_domingo.out
         
 Cada archivo debe mostrar el listado organizado de la programación del día correspondiente,
 considerando la duración exacta de cada elemento.
