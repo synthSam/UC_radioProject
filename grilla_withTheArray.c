@@ -4,6 +4,7 @@
 #define MAXDATA 999
 #define size 30
 
+//structures definitions
 typedef int timeCtrl[3];
 //timeCtrl[hour, min, sec]
 
@@ -19,10 +20,13 @@ struct grid {
 
 //funcitions
 void p_time(struct grid info);
+//prints the time stamp of the info entry
+void p_name(struct grid info);
+//prints the name of the info emition
 
 int main(){
     struct grid data[MAXDATA];
-    
+    //this is exit format
     //position in
     for(int i=0; i<3; i++){
         for(int j=0; j<3; j++){
@@ -35,12 +39,13 @@ int main(){
         data[i].emition.type = 'S';
         strcpy(data[i].emition.name, "warhammer radio");
     }
-    
+   
     //print this thing
     for(int i=0; i<3; i++){
         p_time(data[i]);
-        printf("%c %s\n", data[i].emition.type, data[i].emition.name);
+        p_name(data[i]);
     }
+    
     
     return 0;
 }
@@ -51,4 +56,8 @@ void p_time(struct grid info){
         if(i != 2) printf(":");
     }
     printf(" ");
+}
+
+void p_name(struct grid info){
+    printf("%c %s\n", info.emition.type, info.emition.name);
 }
