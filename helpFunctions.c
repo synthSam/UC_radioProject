@@ -24,11 +24,31 @@ struct grid {
     emition tag;
 };
 
-int main(){
-    struct grid data[3];
-    
-    
-    
-    return 0;
+bool isNumeral(char x){
+    bool valid = false;
+    if(x >= '0' && x <= '9'){
+        valid = true;
+    }
+    return valid;
 }
 
+int main(){
+    //48-57
+    struct grid data[3];
+    char str[size] = "Ciencia Critica 10 00 4 8";
+    int stop = strlen(str);
+    int ctrlChar;
+    printf("%i\n", stop);
+    
+        for(int i=0; i<stop; i++){
+            ctrlChar = str[i];
+            if(isNumeral(ctrlChar)){
+                printf("%c", ctrlChar);
+            }
+            if(ctrlChar == ' ' && isNumeral(str[i-1])){
+                printf("%c", ctrlChar);
+            }
+            
+        }
+    return 0;
+}
