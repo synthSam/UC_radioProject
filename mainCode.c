@@ -4,20 +4,20 @@
 //global constants
 #define MAX_SONGS 1000
 //song constants
-#define SONG_NAME_MAX 50
-#define SONG_MIN 15
-#define SONG_SEC 59
-#define SONG_SCORE_MAX 100
-#define SONG_SCORE_MIM 1
+#define song_name_max 50
+#define song_min 15
+#define song_sec 59
+#define song_score_max 100
+#define song_score_min 1
 //add constants
-#define ADD_COMPANIE_NAME_MAX 30
-#define ADD_SEC 60
+#define add_companie_name_max 30
+#define add_sec 60
 //show contants
-#define SHOW_NAME 100
-#define SHOW_MINUTES_MAX 120
-#define SHOW_SECONDS_MAX 60
-#define SHOW_PREF_MIN 1
-#define SHOW_PREF_MAX 10
+#define show_name 100
+#define show_minutes_max 120
+#define show_seconds_max 60
+#define show_pref_min 1
+#define show_pref_max 10
 
 #define name_size 30
 
@@ -32,7 +32,7 @@ typedef struct emitionCtrl {
     timeCtrl duration;
     //no emitions have a duration over 30 minutes
     int popularity;
-    //in c -> [1,100] in p -> [1,10]
+    //in c -> [1,100] in s -> [1,10]
     int repetitions;
     //in c -> [0,6] in order of popularity
 } emition;
