@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
-#define MAXDATA 999
-#define size 30
+
+#define name_size 30
+#define max_list 10
 
 //structures definitions
 typedef int timeCtrl[3];
@@ -11,7 +11,7 @@ typedef int timeCtrl[3];
 typedef struct emitionCtrl {
     char type;
     //c,s,p
-    char name[size];
+    char name[name_size];
     timeCtrl duration;
     //no emitions have a duration over 30 minutes
     int popularity;
@@ -24,72 +24,78 @@ struct grid {
     emition tag;
 };
 
-void set_type(emition *value);
+void pArr(struct grid arr[], int size){
+  int stop = size-1;
+  
+  for(int i=0; i<stop; i++){
+    printf("%i ", arr[i].tag.popularity);
+  }
+  printf("--\n");
+}
+//prints the array elements
 
-void thePopular(struct grid arr[], int limit);
+bool sorted(struct grid arr[], int size){
+  bool value = true; 
+  
+  for(int i=0; i<size-2; i++){
+    if(arr[i].tag.popularity < arr[i+1].tag.popularity){
+      value = false;
+    }
+  }
+  
+  return value;
+}
+//returns true if the array is sorted from max to min value
+
+void bubbleSortMm(struct grid arr[], int size){
+  int change;
+  int stop = size-1;
+  
+  for(int i=0; i<stop; i++){
+    for(int j=0; j<stop-i; j++){
+      
+      if(arr[i].tag.popularity < arr[i+1].tag.popularity){
+        change = arr[i].tag.popularity;
+        arr[i].tag.popularity = arr[i+1].tag.popularity;
+        arr[i+1].tag.popularity = change;
+      }
+    }
+  }
+}
+
+void sortMn(struct grid arr[], int size){
+  while(!sorted(arr, size)){
+    bubbleSortMm(arr, size);
+    printf("1\n");
+  }
+}
+//aplasy the bubblesort in an array until is fully sorted
 
 int main(){
-    struct grid data[5];
-    data[0].tag.type = 'c';
-    data[0].tag.popularity = 10;
-    
-    data[1].tag.type = 'c';
-    data[1].tag.popularity = 60;
-    
-    data[2].tag.type = 's';
-    data[2].tag.popularity = 10;
-    
-    data[3].tag.type = 's';
-    data[3].tag.popularity = 6;
-    
-    data[4].tag.type = 'c';
-    data[4].tag.popularity = 85;
-    
-    thePopular(data, 5);
-    return 0;
-}
+  FILE *fp;
+  fp = fopen("file.txt", "r");
+  if(fp == NULL) printf("ERROR\n"); else printf("run\n");
+  
+  struct grid list[max_list];
+  int i = 0;
+  int pass = 0;
+  
+  while(fscanf(fp, "%i", &pass) == 1 && i < 10){
+    //printf("--%i pass\n", pass);
+    list[i].tag.popularity = pass;
+    //printf("list %i_%i\n", i, list[i].tag.popularity);
+    i++;
+  }
+  
 
-void set_type(emition *value){
-    if(value->type == 'c'){
-        value->repetitions = 0;
-        printf("its a song\n");
-    }
-    if(value->type == 's'){
-        value->duration[1] = 0;
-        printf("its a radio show\n");
-    }
-    if(value->type == 'p'){
-        printf("ok its an add\n");
-    }
-}
+  pArr(list, max_list);
+  printf("%i\n", sorted(list, max_list));
+  sortMn(list, max_list);
+  pArr(list, max_list);
+  printf("%i\n", sorted(list, max_list));
 
-void thePopular(struct grid arr[], int limit){
-    int discarted[limit];
-    int discard_i = 0;
-    
-    struct grid popSon;
-    struct grid popShw;
-    popSon.tag.popularity = 0;
-    popShw.tag.popularity = 0;
-    
-    for(int i=0; i<limit; i++){
-        if(arr[i].tag.type == 'c'){
-            if(arr[i].tag.popularity > popSon.tag.popularity){
-                popSon.tag.popularity = arr[i].tag.popularity;
-                discarted[discard_i] = i;
-                discard_i++;
-            }
-        }
-        
-        if(arr[i].tag.type == 's'){
-            if(arr[i].tag.popularity > popShw.tag.popularity){
-                popShw.tag.popularity = arr[i].tag.popularity;
-                discarted[discard_i] = i;
-                discard_i++;
-            }
-        }
-    }
-    
-    printf("pop c %i\n", popSon.tag.popularity);
-    printf("pop s %i\n", popShw.tag.popularity);
+
+  
+  
+  return 0;
 }
