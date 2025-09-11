@@ -34,6 +34,7 @@ typedef struct emitionCtrl {
     int popularity;
     //in c -> [1,100] in p -> [1,10]
     int repetitions;
+    //in c -> [0,6] in order of popularity
 } emition;
 
 struct grid {
